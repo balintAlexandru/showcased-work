@@ -42,8 +42,19 @@ const Control = ({ portfolioData, setPortfolioData }) => {
   };
 
   const handleEdit = (id) => {
-    const editedEntry = portfolioData.find((item) => item.id === id);
-    portfolioData[portfolioData.indexOf(editedEntry)] = entry;
+    setPortfolioData(
+      portfolioData.map((item) => {
+        return item.id === id ? { ...entry } : { ...item };
+      })
+    );
+  };
+
+  const handleHide = (id) => {
+    setPortfolioData(
+      portfolioData.map((item) => {
+        return item.id === id ? { ...item, show: !item.show } : { ...item };
+      })
+    );
   };
 
   const handleError = () => {
@@ -82,9 +93,9 @@ const Control = ({ portfolioData, setPortfolioData }) => {
             </p>
           )}
           {portfolioData.length !== 0 && (
-            <ol>
-              {portfolioData?.map((data) => (
-                <li>
+            <ul>
+              {portfolioData?.map((data, index) => (
+                <li key={index}>
                   <img src={data.image} alt="entryImg" />
                   <p>{data.link}</p>
                   <div className="entry-settings">
@@ -101,7 +112,13 @@ const Control = ({ portfolioData, setPortfolioData }) => {
                     >
                       🖊️
                     </span>
-                    <span>👀</span>
+                    <span
+                      onClick={() => {
+                        handleHide(data.id);
+                      }}
+                    >
+                      {data?.show ? "👀" : "🙈"}
+                    </span>
                     <span
                       onClick={() => {
                         handleDelete(data.id);
@@ -112,7 +129,7 @@ const Control = ({ portfolioData, setPortfolioData }) => {
                   </div>
                 </li>
               ))}
-            </ol>
+            </ul>
           )}
         </div>
       )}
@@ -143,7 +160,14 @@ const Control = ({ portfolioData, setPortfolioData }) => {
       <div className="btn-wrapper">
         <button
           onClick={() => {
-            handleAction(currentAction);
+            if (
+              (entry.link === "" || entry.image === "") &&
+              currentAction !== "ADD"
+            ) {
+              handleError();
+            } else {
+              handleAction(currentAction);
+            }
           }}
           style={{
             backgroundColor:

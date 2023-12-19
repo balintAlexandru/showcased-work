@@ -11,6 +11,7 @@
   justify-content: space-between;
   padding: 30px;
   padding-bottom: 50px;
+  z-index: 5;
 }
 h2 {
   color: white;
@@ -29,6 +30,9 @@ h2 {
   gap: 20px;
   color: white;
   font-weight: 600;
+}
+.info span {
+  text-align: center;
 }
 .human {
   font-size: 40px;
@@ -56,30 +60,30 @@ h2 {
 .list-wrapper {
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 40px 10px;
+  padding: 70px 10px 40px 10px;
   height: 370px;
 }
-.list-wrapper ol li {
+.list-wrapper ul li {
   display: flex;
-  border: 1px solid black;
+  border: 1px solid rgb(252, 250, 250);
   border-radius: 20px;
   margin-top: 10px;
   padding: 10px 20px;
   align-items: center;
   justify-content: space-between;
 }
-.list-wrapper ol li img {
+.list-wrapper ul li img {
   width: 50px;
 }
-.list-wrapper ol {
+.list-wrapper ul {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
 }
-.list-wrapper ol::-webkit-scrollbar {
+.list-wrapper ul::-webkit-scrollbar {
   display: none;
 }
-.list-wrapper ol {
+.list-wrapper ul {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -111,6 +115,7 @@ h2 {
   font-size: 20px;
   text-align: center;
   padding-top: 20px;
+  height: 20px;
 }
 .image-wrapper {
   width: 50%;

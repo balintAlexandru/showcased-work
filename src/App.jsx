@@ -5,7 +5,7 @@ import Control from "./components/Control/Control";
 
 const App = () => {
   const [portfolioData, setPortfolioData] = useState([]);
-  console.log(portfolioData);
+
   return (
     <div className="app-wrapper">
       <Notepad portfolioData={portfolioData} />
