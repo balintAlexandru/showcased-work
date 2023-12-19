@@ -1,0 +1,11 @@
+.notepad-wrapper {
+  position: relative;
+  width: 550px;
+  height: 700px;
+}
+.notepad-wrapper img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0px;
+}
