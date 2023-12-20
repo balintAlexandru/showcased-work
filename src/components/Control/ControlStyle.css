@@ -12,9 +12,32 @@
   padding: 30px;
   padding-bottom: 50px;
   z-index: 5;
+  @media only screen and (max-width: 600px) {
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width: 100%;
+  }
 }
 h2 {
   color: white;
+}
+.settings-icon {
+  position: absolute;
+  font-size: 50px;
+  cursor: pointer;
+  right: 40px;
+  top: 20px;
+  @media only screen and (max-width: 600px) {
+    right: 15px;
+    top: 15px;
+    font-size: 30px;
+  }
+}
+.close-settings {
+  position: absolute;
+  top: 30px;
+  right: 25px;
+  cursor: pointer;
 }
 .list {
   height: 100%;
@@ -90,6 +113,8 @@ h2 {
 .create-wrapper {
   gap: 30px;
   align-items: flex-start;
+  padding-top: 50px;
+  padding-bottom: 20px;
 }
 .link-wrapper {
   display: flex;
@@ -114,7 +139,7 @@ h2 {
   color: red;
   font-size: 20px;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 5px;
   height: 20px;
 }
 .image-wrapper {
@@ -133,4 +158,11 @@ h2 {
 }
 .entry-settings span {
   cursor: pointer;
+}
+.control-list-link {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 19ch;
+  padding-left: 10px;
 }
